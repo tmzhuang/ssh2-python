@@ -18,18 +18,18 @@ addons:
       - rpm
       - dpkg
       - cmake
-install: skip
-  # - pip install flake8 jinja2 sphinx sphinx_rtd_theme
-  # - sudo ci/install-ssh2.sh
-  # - python setup.py build_ext --inplace
-  # - eval "$(ssh-agent -s)"
-script: skip
-  # - export LD_LIBRARY_PATH=/usr/local/lib/x86_64-linux-gnu
-  # - nosetests
-  # - flake8 ssh2
-  # - python setup.py sdist
-  # - cd dist; pip install *; cd ..
-  # - cd doc; make html; cd ..
+install:
+  - pip install flake8 jinja2 sphinx sphinx_rtd_theme
+  - sudo ci/install-ssh2.sh
+  - python setup.py build_ext --inplace
+  - eval "$(ssh-agent -s)"
+script:
+  - export LD_LIBRARY_PATH=/usr/local/lib/x86_64-linux-gnu
+  - nosetests
+  - flake8 ssh2
+  - python setup.py sdist
+  - cd dist; pip install *; cd ..
+  - cd doc; make html; cd ..
 jobs:
   include:
 
