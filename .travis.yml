@@ -10,7 +10,6 @@ python:
   - 3.4
   - 3.5
   - 3.6
-  - pypy
 addons:
   apt:
     packages:
@@ -20,7 +19,6 @@ addons:
       - cmake
 install:
   - pip install flake8 jinja2 sphinx sphinx_rtd_theme
-  - sudo ci/install-ssh2.sh
   - python setup.py build_ext --inplace
   - eval "$(ssh-agent -s)"
 script:
@@ -47,8 +45,8 @@ jobs:
         - python2 -c "from __future__ import print_function; import ssl; from platform import python_version; print(ssl.OPENSSL_VERSION); print(python_version())"
         - sudo -H pip2 install twine
         - which twine
-        - sudo ci/install-ssh2.sh
-        - cp /usr/local/lib/libssh2* .
+        # - sudo ci/install-ssh2.sh
+        # - cp /usr/local/lib/libssh2* .
         - mkdir -p wheels
       install:
         - sudo -H pip2 install -U delocate wheel pip setuptools
