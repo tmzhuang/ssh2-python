@@ -6,7 +6,7 @@ environment:
     CMD_IN_ENV: "cmd /E:ON /V:ON /C %APPVEYOR_BUILD_FOLDER%\\ci\\appveyor\\run_with_env.cmd"
     PYTHONUNBUFFERED: 1
     EMBEDDED_LIB: 1
-    OPENSSL_VER: 1.0.2l
+    OPENSSL_VER: 1.0.2p
     PYPI_USER:
       secure: 2m0jy6JD/R9RExIosOT6YA==
     PYPI_PASS:
